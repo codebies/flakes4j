@@ -1,4 +1,4 @@
-package org.rxshine.flakes4j;
+package org.codebies.flakes4j;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -10,18 +10,18 @@ public class IDGeneratorTests {
 
     @Test
     public void createIDGenerator() {
-        IDGenerator idGenerator = new IDGenerator();
+        Application idGenerator = new Application();
     }
 
     @Test
     public void nextId_returnGreaterThanZero() {
-        IDGenerator idGenerator = new IDGenerator();
-        Assertions.assertTrue(idGenerator.nextId()>0);
+        Application idGenerator = new Application();
+        Assertions.assertTrue(idGenerator.nextId() > 0);
     }
 
     @Test
     public void nextIds_returnUniqueIds() {
-        IDGenerator idGenerator = new IDGenerator();
+        Application idGenerator = new Application();
         long first = idGenerator.nextId();
         long second = idGenerator.nextId();
         Assertions.assertNotEquals(first, second);
@@ -31,7 +31,7 @@ public class IDGeneratorTests {
     @Test
     public void testInetAddress() throws UnknownHostException {
         InetAddress inetAddress = InetAddress.getByName("10.129.10.20");
-        for(byte b: inetAddress.getAddress()){
+        for (byte b : inetAddress.getAddress()) {
             System.out.println(b);
             System.out.println(Byte.toUnsignedInt(b));
         }
@@ -39,6 +39,5 @@ public class IDGeneratorTests {
 
     }
 
-    
-    
+
 }
