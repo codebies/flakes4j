@@ -1,4 +1,4 @@
-package org.codebies.flakes4j.identifier;
+package org.codebies.flakes4j.utils;
 
 import io.vavr.control.Try;
 

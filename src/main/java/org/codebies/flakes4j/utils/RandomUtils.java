@@ -1,14 +1,10 @@
-package org.codebies.flakes4j.identifier;
+package org.codebies.flakes4j.utils;
 
 import java.util.Random;
 
-final class RandomUtils {
+public final class RandomUtils {
 
-    static int getRandom16Bits(){
-        return getRandomBits(4,4);
-    }
-
-    static int getRandomBits(int first, int... sizes){
+    public static int getRandomSegment(int first, int... sizes){
         Random random = new Random();
         int value = random.nextInt(getBound(first));
         for(int size:sizes)
@@ -16,7 +12,7 @@ final class RandomUtils {
         return value;
     }
 
-    static int getBound(int bits){
+    private static int getBound(int bits){
         return ~(-1 << bits);
     }
 
