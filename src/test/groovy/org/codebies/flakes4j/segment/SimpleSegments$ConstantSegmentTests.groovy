@@ -9,10 +9,10 @@ import spock.lang.Specification
 import java.util.function.Supplier
 import java.util.stream.IntStream
 
-@CompileStatic
+
 class SimpleSegments$ConstantSegmentTests extends Specification{
 
-    @CompileDynamic
+    
     void "Verify exception on constant segment with zero or negative bit length #bits"(){
         when:
         Segments.newConstantSegment(bits, 2)
@@ -34,7 +34,7 @@ class SimpleSegments$ConstantSegmentTests extends Specification{
         thrown(InvalidInputException)
     }
 
-    @CompileDynamic
+    
     void "Verify exception on constant segment with negative value"(){
         given:
         def segment = Segments.newConstantSegment(bits, nValue)
@@ -52,7 +52,7 @@ class SimpleSegments$ConstantSegmentTests extends Specification{
         4 | -400
     }
 
-    @CompileDynamic
+    
     void "Verify exception on constant segment with exceeded value"(){
         given:
         def segment = Segments.newConstantSegment(bits, invalidValue)
@@ -71,7 +71,7 @@ class SimpleSegments$ConstantSegmentTests extends Specification{
     }
 
 
-    @CompileDynamic
+    
     void "Verify constant segment validity with valid bit length #bitLength"(){
         when:
         Segments.newConstantSegment(bitLength as int, 400)
@@ -83,7 +83,7 @@ class SimpleSegments$ConstantSegmentTests extends Specification{
         bitLength << IntStream.range(1,32).toArray()
     }
 
-    @CompileDynamic
+    
     void "Verify constant segment validity with zero as value and bit length #bits"(){
         given:
         def segment = Segments.newConstantSegment(bits as int, 0)
@@ -98,7 +98,7 @@ class SimpleSegments$ConstantSegmentTests extends Specification{
         bits << IntStream.range(1,32).toArray()
     }
 
-    @CompileDynamic
+    
     void "Verify constant segment validity with max value  #bits - #maxValue"(){
         given:
         def segment = Segments.newConstantSegment(bits as int, maxValue as int)
@@ -143,7 +143,7 @@ class SimpleSegments$ConstantSegmentTests extends Specification{
      *  Supplier
      */
 
-    @CompileDynamic
+    
     void "Verify exception on constant supplier segment with zero or negative bit length #bits"(){
         when:
         Segments.newConstantSegment(bits, ()->2)
@@ -173,7 +173,7 @@ class SimpleSegments$ConstantSegmentTests extends Specification{
         thrown(InvalidInputException)
     }
 
-    @CompileDynamic
+    
     void "Verify exception on constant supplier segment with negative value"(){
         given:
         def segment = Segments.newConstantSegment(bits, ()->nValue)
@@ -191,7 +191,7 @@ class SimpleSegments$ConstantSegmentTests extends Specification{
         4 | -400
     }
 
-    @CompileDynamic
+    
     void "Verify exception on constant supplier segment with exceeded value"(){
         given:
         def segment = Segments.newConstantSegment(bits, ()->invalidValue)
@@ -210,7 +210,7 @@ class SimpleSegments$ConstantSegmentTests extends Specification{
     }
 
 
-    @CompileDynamic
+    
     void "Verify constant supplier segment validity with valid bit length #bitLength"(){
         when:
         Segments.newConstantSegment(bitLength as int, ()->400)
@@ -222,7 +222,7 @@ class SimpleSegments$ConstantSegmentTests extends Specification{
         bitLength << IntStream.range(1,32).toArray()
     }
 
-    @CompileDynamic
+    
     void "Verify constant supplier segment validity with zero as value and bit length #bits"(){
         given:
         def segment = Segments.newConstantSegment(bits as int, ()->0)
@@ -237,7 +237,7 @@ class SimpleSegments$ConstantSegmentTests extends Specification{
         bits << IntStream.range(1,32).toArray()
     }
 
-    @CompileDynamic
+    
     void "Verify constant supplier segment validity with max value  #bits - #maxValue"(){
         given:
         def segment = Segments.newConstantSegment(bits as int, ()->maxValue as int)
